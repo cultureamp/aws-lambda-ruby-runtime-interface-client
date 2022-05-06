@@ -5,7 +5,7 @@
 require 'logger'
 
 class LambdaLogFormatter < Logger::Formatter
-  FORMAT = '%<sev>s, [%<datetime>s#%<process>d] %<severity>5s %<request_id>s -- %<progname>s: %<msg>s'
+  FORMAT = '%<sev>s, [%<datetime>s #%<process>d] %<severity>5s %<request_id>s -- %<progname>s: %<msg>s'
 
   def call(severity, time, progname, msg)
     (FORMAT % {sev: severity[0..0], datetime: format_datetime(time), process: $$, severity: severity,
